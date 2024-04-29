@@ -12,6 +12,9 @@ return {
   -- Jump between errors and other places
   'tpope/vim-unimpaired',
 
+  -- The premier Vim plugin for Git
+  'tpope/vim-fugitive',
+
   -- Searching with ripgrep
   'jremmen/vim-ripgrep',
 
