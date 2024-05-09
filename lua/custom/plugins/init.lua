@@ -18,6 +18,23 @@ return {
   -- Searching with ripgrep
   'jremmen/vim-ripgrep',
 
+  -- Easy substitution of text
+  {
+    'gbprod/substitute.nvim',
+    opts = {
+      highlight_substituted_text = {
+        enabled = false,
+      },
+    },
+    config = function(_, opts)
+      require('substitute').setup(opts)
+      vim.keymap.set('n', 's', require('substitute').operator, { noremap = true })
+      vim.keymap.set('n', 'ss', require('substitute').line, { noremap = true })
+      vim.keymap.set('n', 'S', require('substitute').eol, { noremap = true })
+      vim.keymap.set('x', 's', require('substitute').visual, { noremap = true })
+    end,
+  },
+
   {
     'ray-x/go.nvim',
     dependencies = { -- optional packages
