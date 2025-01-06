@@ -13,7 +13,20 @@ return {
   'tpope/vim-unimpaired',
 
   -- The premier Vim plugin for Git
-  'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
+    config = function()
+      vim.keymap.set('n', '<C-N>', '<cmd>Git<CR>')
+    end,
+  },
+
+  -- Fugitive extension to manage and merge Git branches
+  {
+    'idanarye/vim-merginal',
+    dependencies = {
+      'tpope/vim-fugitive',
+    },
+  },
 
   -- Searching with ripgrep
   'jremmen/vim-ripgrep',
